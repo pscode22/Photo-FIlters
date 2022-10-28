@@ -2,7 +2,7 @@ import React from "react";
 import { TiArrowBack } from "react-icons/ti"
 import { ImageFilterContext } from "../App";
 
-export default function Scroll({ arr, setScreen }) {
+export default function Scroll({ arr, setScreen, setFilterName }) {
 
   const filterValue  = React.useContext(ImageFilterContext);
   const { value, setValue } = filterValue;
@@ -15,7 +15,8 @@ export default function Scroll({ arr, setScreen }) {
     const key = e.target.name;
     const currValue = e.target.value;
 
-    setState({...state, [key] : currValue })
+    setState({...state, [key] : currValue });
+    setFilterName("Custom");
 
     return setValue({...value, [key] : currValue})
   }

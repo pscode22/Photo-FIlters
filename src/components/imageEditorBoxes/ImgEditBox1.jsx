@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageFilterContext } from '../../App';
 
-export default function ImgEditBox1({classProps}) {
+export default function ImgEditBox1({classProps, setFilterName}) {
 
     const filterValue = React.useContext(ImageFilterContext);
     const { value, setValue } = filterValue;
@@ -9,7 +9,7 @@ export default function ImgEditBox1({classProps}) {
     const handleValueChange = (e) => {
         const key = e.target.name;
         const currValue = e.target.value;
-        // console.log( [key] , currValue)
+        setFilterName("Custom");
     
         return setValue({...value, [key] : currValue})
     }

@@ -7,7 +7,7 @@ import photo from "../digital_photo/samurai.jpg";
 import { ImageContext } from "./ImageContext";
 import FilterPalette from "./FilterPalette";
 
-export default function ImageContainer({ imageRef }) {
+export default function ImageContainer({ imageRef, filterName, setFilterName }) {
   const [display, setDisplay] = React.useState("Filter");
 
   const filterValue = React.useContext(ImageFilterContext);
@@ -45,7 +45,7 @@ export default function ImageContainer({ imageRef }) {
           md:w-[100%] md:h-fit   row-span-2 relative grid place-items-center"
           >
             <div
-              className="relative w-[full] h-[400px] sm:w-[450px] p-1 sm:h-[450px] md:w-[600px] md:h-[520px]"
+              className="relative w-[full] h-[400px] sm:w-[450px] p-1 sm:h-[450px] md:w-[600px] md:h-[470px]"
               ref={imageRef}
             >
               <img
@@ -57,11 +57,15 @@ export default function ImageContainer({ imageRef }) {
             </div>
           </div>
 
+          <div className="dark:text-white font-sans tracking-widest font-medium pb-2">
+            <p> Filter_Applied : {filterName} </p>
+          </div>
+
           <div className="box-border border-0 w-[full] h-fit mx-2 md:m-0 md:mt-4 relative pl-1 pr-1 ">
-            {display === "Filter" ? <FilterPalette /> : <ImgEditBox2 />}
+            {display === "Filter" ? <FilterPalette setFilterName={setFilterName}/> : <ImgEditBox2 setFilterName={setFilterName}/>}
 
             <div
-              className="w-full border  h-[42px] dark:text-white border-black  dark:border-gray-700 flex mt-2 font-mono font-extrabold cursor-pointer
+              className="w-full border  h-[42px] dark:text-white border-black  dark:border-gray-700 flex mt-4 font-mono font-extrabold cursor-pointer
               lg:hidden"
             >
               <div
@@ -83,7 +87,7 @@ export default function ImageContainer({ imageRef }) {
           </div>
         </div>
 
-        <ImgEditBox1 classProps={`hidden lg:block lg:col-span-1`} />
+        <ImgEditBox1 classProps={`hidden lg:block lg:col-span-1`} setFilterName={setFilterName}/>
       </div>
     </>
   );

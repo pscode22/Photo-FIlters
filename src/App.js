@@ -2,9 +2,8 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ImageProvider from "./components/ImageContext";
-import ImageContainer from "./components/ImageBox";
+import ImageContainer from "./components/ImageContainer.jsx";
 
-export const UserColorContext = React.createContext();
 export const ImageFilterContext = React.createContext();
 
 const constantValue = {
@@ -25,13 +24,14 @@ const constantValue = {
 
 function App() {
   const [value, setValue] = React.useState(constantValue);
+  const [filterName, setFilterName] = React.useState("None")
 
   return (
     <ImageFilterContext.Provider value={{ value, setValue, constantValue }}>
       <ImageProvider>
         <div className="App dark:bg-[#010409] h-fit">
           <Header />
-          <ImageContainer />
+          <ImageContainer filterName={filterName} setFilterName={setFilterName}/>
         </div>
       </ImageProvider>
     </ImageFilterContext.Provider>

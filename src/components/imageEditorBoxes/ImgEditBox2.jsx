@@ -2,7 +2,7 @@ import React from "react";
 import { ImageFilterContext } from "../../App";
 import Scroll from "../RangeBar";
 
-export default function ImgEditBox2() {
+export default function ImgEditBox2({ setFilterName }) {
 
   const filterValue = React.useContext(ImageFilterContext);
   const  { value } = filterValue;
@@ -39,7 +39,7 @@ export default function ImgEditBox2() {
         {filterArr.map((item, index) => (
           <div
             className="w-[100%] h-[46px] dark:bg-white grid place-items-center rounded-md dark:hover:bg-gray-400
-            text-[8px] scale-105 sm:text-base font-semibold font-mono
+            text-[8px] scale-105 sm:scale-100 sm:text-base font-semibold font-mono
             border border-gray-400 dark:border-transparent cursor-default"
             key={index}
             id={item.id}
@@ -50,7 +50,7 @@ export default function ImgEditBox2() {
         ))}
       </div>
       :
-      <Scroll arr={arr} setScreen={setScreen}/>
+      <Scroll arr={arr} setScreen={setScreen} setFilterName={setFilterName}/>
     }
     </>
   );
