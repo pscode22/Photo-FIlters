@@ -61,10 +61,8 @@ export function Modal({ showModal, setShowModal }) {
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative sm:w-auto w-[95%] my-6 mx-auto max-w-3xl">
-
               {/* -------- content -------- */}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-[#161b22] outline-none focus:outline-none">
-                
                 {/* -------- header -------- */}
                 <div className="flex items-start justify-between pt-2 pr-4 border-0 border-solid border-slate-200 rounded-t">
                   <button
@@ -82,33 +80,37 @@ export function Modal({ showModal, setShowModal }) {
                 </div>
 
                 {/* -------- body -------- */}
-                <div className="relative p-6 flex-auto mb-12">
+                <div className="relative p-6 flex-auto ">
                   <div
-                    className="w-full sm:w-[500px] h-[200px]  
+                    className="w-full sm:w-[500px] h-fit  
                       dark:text-white text-center relative"
                   >
                     <div
-                      className="absolute z-10"
+                      className="relativw z-10 w-full h-fit"
                       style={{ display: imageState ? "block" : "none" }}
                     >
                       <img
                         id="uploadImage"
                         src={""}
                         alt="preview"
-                        style={{ objectFit: "contain" }}
+                        style={{ objectFit: "contain", display : "block" }}
+                        // className="w-full h-[100px]"
                       />
                     </div>
 
-                    <div className="w-full h-full  relative z-0">
+                    <div className="w-full h-[200px]  relative z-0"
+                     style={
+                      {
+                        display: imageState === false ? "block" : "none",
+                      }
+                    }
+                    >
                       <input
                         type="file"
                         multiple
                         className="w-full h-full text-center place-items-center pt-10 pl-[27%] sm:pl-[30%]
                           dark:bg-gray-700 border-2 border-dashed dark:border-white"
                         onChange={handleChange}
-                        style={{
-                          display: imageState === false ? "block" : "none",
-                        }}
                       />
 
                       <p className="dark:text-white relative bottom-[50%] z-0">
@@ -116,17 +118,22 @@ export function Modal({ showModal, setShowModal }) {
                       </p>
                     </div>
 
+                    <div className="w-full flex justify-center">
                     <button
                       type="submit"
                       onClick={handleSubmit}
                       className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 
-                        rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 mt-4 ease-linear transition-all 
+                        rounded shadow hover:shadow-lg outline-none focus:outline-none mt-4 ease-linear transition-all 
                         duration-150 disabled:bg-gray-500"
                       disabled={state}
                     >
                       Upload
                     </button>
                   </div>
+
+                  </div>
+
+                 
                 </div>
               </div>
             </div>
