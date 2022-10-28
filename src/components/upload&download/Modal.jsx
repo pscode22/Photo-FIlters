@@ -93,17 +93,16 @@ export function Modal({ showModal, setShowModal }) {
                         id="uploadImage"
                         src={""}
                         alt="preview"
-                        style={{ objectFit: "contain", display : "block" }}
+                        style={{ objectFit: "contain", display: "block" }}
                         // className="w-full h-[100px]"
                       />
                     </div>
 
-                    <div className="w-full h-[200px]  relative z-0"
-                     style={
-                      {
+                    <div
+                      className="w-full h-[200px]  relative z-0"
+                      style={{
                         display: imageState === false ? "block" : "none",
-                      }
-                    }
+                      }}
                     >
                       <input
                         type="file"
@@ -119,21 +118,18 @@ export function Modal({ showModal, setShowModal }) {
                     </div>
 
                     <div className="w-full flex justify-center">
-                    <button
-                      type="submit"
-                      onClick={handleSubmit}
-                      className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 
+                      <button
+                        type="submit"
+                        onClick={handleSubmit}
+                        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 
                         rounded shadow hover:shadow-lg outline-none focus:outline-none mt-4 ease-linear transition-all 
                         duration-150 disabled:bg-gray-500"
-                      disabled={state}
-                    >
-                      Upload
-                    </button>
+                        disabled={state}
+                      >
+                        Upload
+                      </button>
+                    </div>
                   </div>
-
-                  </div>
-
-                 
                 </div>
               </div>
             </div>
