@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Photo-Filters/static/css/main.bdb8e3bc.css",
-    "main.js": "/Photo-Filters/static/js/main.ccf72328.js",
+    "main.js": "/Photo-Filters/static/js/main.87869648.js",
     "static/media/samurai.jpg": "/Photo-Filters/static/media/samurai.478c6a44d3595398954b.jpg",
     "index.html": "/Photo-Filters/index.html",
     "main.bdb8e3bc.css.map": "/Photo-Filters/static/css/main.bdb8e3bc.css.map",
-    "main.ccf72328.js.map": "/Photo-Filters/static/js/main.ccf72328.js.map"
+    "main.87869648.js.map": "/Photo-Filters/static/js/main.87869648.js.map"
   },
   "entrypoints": [
     "static/css/main.bdb8e3bc.css",
-    "static/js/main.ccf72328.js"
+    "static/js/main.87869648.js"
   ]
 }
