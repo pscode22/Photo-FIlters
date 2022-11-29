@@ -11,17 +11,17 @@ export default function Theme() {
     const [theme, setTheme] = useState();
 
     const themeSwitch = () => {
-        if(document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            setTheme('light');
-            return;
-        }
-    
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-        setTheme('dark')
+      if(document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        setTheme('light');
         return;
+      }
+  
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setTheme('dark')
+      return;
     }
 
   return (
