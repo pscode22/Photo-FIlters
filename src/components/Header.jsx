@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import Theme from "./Mode";
 import Buttons from "./upload&download/Buttons";
 
-export default function Header() {
+export default function Header({imageRef}) {
   return (
     <div>
       <nav className="bg-white dark:bg-[#161b22]  shadow dark:shadow-gray-500">
@@ -19,6 +19,7 @@ export default function Header() {
                     btnClass={` bg-pink-500 h-12 text-white active:bg-pink-600 font-bold uppercase text-sm  px-2 sm:px-6 py-3 rounded 
                     shadow hover:shadow-lg outline-none  focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150
                     bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br active:ring-1 h-full mt-1`}
+                    imageRef={imageRef}
                   />
                 </div>
               </div>

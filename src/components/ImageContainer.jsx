@@ -16,6 +16,7 @@ export default function ImageContainer({ imageRef, filterName, setFilterName }) 
   const showImage = React.useContext(ImageContext);
   const { images } = showImage;
 
+  const imgRef = React.useRef();
   const filterRef = React.useRef();
   const editRef = React.useRef();
 
@@ -26,7 +27,7 @@ export default function ImageContainer({ imageRef, filterName, setFilterName }) 
     opacity: `${value.opacity}`,
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e) => { 
     const value = e.target.innerText;
     const className = "h-full flex justify-center items-center w-[50%]";
     value === "Filter" ? setDisplay("Filter") : setDisplay("Edit");
@@ -34,7 +35,11 @@ export default function ImageContainer({ imageRef, filterName, setFilterName }) 
     editRef.current.setAttribute("class", className);
 
     e.target.setAttribute("class", `${className} bg-blue-700 text-white`);
-  };
+  }; 
+
+  React.useEffect(() => {
+    imageRef.current = imgRef.current;
+  },[imageRef])
 
   return (
     <>
@@ -46,7 +51,7 @@ export default function ImageContainer({ imageRef, filterName, setFilterName }) 
           >
             <div
               className="relative w-[full] h-[400px] sm:w-[450px] p-1 sm:h-[450px] md:w-[600px] md:h-[470px]"
-              ref={imageRef}
+              ref={imgRef}
             >
               <img
                 src={images?.name || photo}

@@ -24,14 +24,15 @@ const constantValue = {
 
 function App() {
   const [value, setValue] = React.useState(constantValue);
-  const [filterName, setFilterName] = React.useState("None")
+  const [filterName, setFilterName] = React.useState("None");
+  const imageRef = React.useRef();
 
   return (
     <ImageFilterContext.Provider value={{ value, setValue, constantValue }}>
       <ImageProvider>
         <div className="App dark:bg-[#010409] h-fit">
-          <Header />
-          <ImageContainer filterName={filterName} setFilterName={setFilterName}/>
+          <Header imageRef={imageRef}/>
+          <ImageContainer filterName={filterName} setFilterName={setFilterName} imageRef={imageRef}/>
         </div>
       </ImageProvider>
     </ImageFilterContext.Provider>
